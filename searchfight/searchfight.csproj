@@ -64,6 +64,9 @@
     <Compile Include="Engine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="ResultsOutputter.cs" />
+    <Compile Include="ResultsCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
