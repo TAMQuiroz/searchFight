@@ -2,10 +2,6 @@
 
 namespace searchfight
 {
-    /* This class is in charge of the outputting of the results from the result calculator to a defined format. 
-     * If a different kind of output is needed, it should be added here
-     */
-     
     class ResultsOutputter
     {
         private Result [] results;
@@ -17,7 +13,6 @@ namespace searchfight
 
         internal void PrintWinnersToConsole()
         {
-            //Prints the Result Winners array from ResultsCalculator
             for (int i = 0; i < this.results.Length - 1; i++)
             {
                 Console.Write(this.results[i].GetEngineName() + " winner: ");

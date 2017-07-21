@@ -1,15 +1,17 @@
-﻿namespace searchfight
+﻿using System;
+
+namespace searchfight
 {
     class Result
     {
+        private string EngineName;
+        private long ResultNumber;
+        private string ArgumentName;
+
         public Result(int v = -1)
         {
             this.ResultNumber = v;
         }
-
-        private string EngineName;
-        private int ResultNumber;
-        private string ArgumentName;
 
         public string GetEngineName()
         {
@@ -21,12 +23,12 @@
             EngineName = value;
         }
 
-        public int GetResultNumber()
+        public long GetResultNumber()
         {
             return ResultNumber;
         }
 
-        public void SetResultNumber(int value)
+        public void SetResultNumber(long value)
         {
             ResultNumber = value;
         }
