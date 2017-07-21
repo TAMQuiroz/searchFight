@@ -1,7 +1,4 @@
-﻿using searchfight.Engine;
-using System.Collections;
-
-namespace searchfight
+﻿namespace searchfight
 {
     class Program
     {
