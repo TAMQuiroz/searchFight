@@ -7,8 +7,6 @@ namespace searchfight
     {
         private Result[] results;
 
-        internal Result[] Results { get => results; set => results = value; }
-
         public ResultsCalculator(SearchEngineManager engines, string[] searchArguments)
         {
             if(searchArguments.Length == 0)
@@ -23,6 +21,8 @@ namespace searchfight
             this.FightEngines(engines.EngineList, searchArguments);
         }
 
+        internal Result[] Results { get => results; set => results = value; }
+
         public Result GetResult(int index)
         {
             return results[index];
@@ -30,9 +30,9 @@ namespace searchfight
 
         public void SetResult(int index, long resultNumber, string argumentName, string engineName)
         {
-            results[index].SetResultNumber(resultNumber);
-            results[index].SetArgumentName(argumentName);
-            results[index].SetEngineName(engineName);
+            results[index].ResultNumber = resultNumber;
+            results[index].ArgumentName = argumentName;
+            results[index].EngineName = engineName;
         }
 
         private void FightEngines(ArrayList engines, string[] searchArguments)
@@ -46,14 +46,14 @@ namespace searchfight
                     var engine = (ISearchEngine)engines[j];
                     engine.GenerateRequest(searchArguments[i]);
 
-                    Console.Write(engine.GetName() + ": " + engine.GetTotalResults() + " ");
+                    Console.Write(engine.Name + ": " + engine.TotalResults + " ");
 
-                    if (engine.GetTotalResults() > results[j].GetResultNumber())
-                        this.SetResult(j, engine.GetTotalResults(), searchArguments[i], engine.GetName());
+                    if (engine.TotalResults > results[j].ResultNumber)
+                        this.SetResult(j, engine.TotalResults, searchArguments[i], engine.Name);
 
                     //For the overall winner
-                    if (engine.GetTotalResults() > results[engines.Count].GetResultNumber())
-                        this.SetResult(engines.Count, engine.GetTotalResults(), searchArguments[i], engine.GetName());
+                    if (engine.TotalResults > results[engines.Count].ResultNumber)
+                        this.SetResult(engines.Count, engine.TotalResults, searchArguments[i], engine.Name);
                 }
 
                 Console.WriteLine("\n");

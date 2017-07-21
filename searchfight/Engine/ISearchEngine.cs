@@ -8,9 +8,9 @@ namespace searchfight
 {
     interface ISearchEngine
     {
-        string GetName();
-        long GetTotalResults();
-        string GetSearchEngineUrl();
+        string Name { get; set; }
+        long TotalResults { get; set; }
+
         void GenerateRequest(string searchArgument);
         
     }

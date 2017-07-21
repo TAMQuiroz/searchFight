@@ -13,55 +13,31 @@ namespace searchfight
 
         public BingSearchEngine()
         {
-            this.name = "Bing";
-            this.apiKey = "793a9b2348994fcfb54a55f2eb09a2ee";
-            this.searchEngineUrl = "https://api.cognitive.microsoft.com/bing/v5.0/search?q=";
+            this.Name = "Bing";
+            this.ApiKey = "793a9b2348994fcfb54a55f2eb09a2ee";
+            this.SearchEngineUrl = "https://api.cognitive.microsoft.com/bing/v5.0/search?q=";
         }
 
-        public string GetName()
-        {
-            return name;
-        }
-
-        public void SetName(string value)
-        {
-            name = value;
-        }
-
-        public string GetSearchEngineUrl()
-        {
-            return searchEngineUrl;
-        }
-
-        public void SetSearchEngineUrl(string value)
-        {
-            searchEngineUrl = value;
-        }
-
-        public long GetTotalResults()
-        {
-            return totalResults;
-        }
-
-        public void SetTotalResults(long value)
-        {
-            totalResults = value;
-        }
-
+        public string Name { get => name; set => name = value; }
+        public string ApiKey { get => apiKey; set => apiKey = value; }
+        public string SearchEngineUrl { get => searchEngineUrl; set => searchEngineUrl = value; }
+        public long TotalResults { get => totalResults; set => totalResults = value; }
+        
         public void GenerateRequest(string searchArgument)
         {
-            var url = this.GetSearchEngineUrl() + searchArgument;
+            var url = this.SearchEngineUrl + searchArgument;
             var request = (HttpWebRequest)WebRequest.Create(url);
-            request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", this.ApiKey);
             var response = (HttpWebResponse)request.GetResponse();
             var stream = response.GetResponseStream();
             var reader = new StreamReader(stream);
             var html = reader.ReadToEnd();
-            this.SetTotalResults(JsonConvert.DeserializeObject<BingSearchEngine>(html).WebPages.TotalEstimatedMatches);
+            this.TotalResults = JsonConvert.DeserializeObject<BingSearchEngine>(html).WebPages.TotalEstimatedMatches;
 
         }
 
         public Webpages WebPages { get; set; }
+
     }
 
 

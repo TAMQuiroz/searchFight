@@ -4,43 +4,17 @@ namespace searchfight
 {
     class Result
     {
-        private string EngineName;
-        private long ResultNumber;
-        private string ArgumentName;
+        private string engineName;
+        private long resultNumber;
+        private string argumentName;
 
         public Result(int v = -1)
         {
-            this.ResultNumber = v;
+            this.resultNumber = v;
         }
 
-        public string GetEngineName()
-        {
-            return EngineName;
-        }
-
-        public void SetEngineName(string value)
-        {
-            EngineName = value;
-        }
-
-        public long GetResultNumber()
-        {
-            return ResultNumber;
-        }
-
-        public void SetResultNumber(long value)
-        {
-            ResultNumber = value;
-        }
-
-        public string GetArgumentName()
-        {
-            return ArgumentName;
-        }
-
-        public void SetArgumentName(string value)
-        {
-            ArgumentName = value;
-        }
+        public string EngineName { get => engineName; set => engineName = value; }
+        public long ResultNumber { get => resultNumber; set => resultNumber = value; }
+        public string ArgumentName { get => argumentName; set => argumentName = value; }
     }
 }
