@@ -1,4 +1,5 @@
-﻿using System;
+﻿using searchfight.Engine;
+using System;
 using System.Collections;
 
 namespace searchfight
@@ -9,7 +10,7 @@ namespace searchfight
 
         internal Result[] Results { get => results; set => results = value; }
 
-        public ResultsCalculator(ArrayList engines, string[] searchArguments)
+        public ResultsCalculator(SearchEngineManager engines, string[] searchArguments)
         {
             if(searchArguments.Length == 0)
             {
@@ -18,9 +19,9 @@ namespace searchfight
                 System.Environment.Exit(1);
             }
                 
-            this.results = new Result[engines.Count + 1];
-            for (var i = 0; i <= engines.Count; i++) results[i] = new Result();
-            this.FightEngines(engines, searchArguments);
+            this.results = new Result[engines.EngineList.Count + 1];
+            for (var i = 0; i <= engines.EngineList.Count; i++) results[i] = new Result();
+            this.FightEngines(engines.EngineList, searchArguments);
         }
 
         public Result GetResult(int index)
