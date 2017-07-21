@@ -4,7 +4,7 @@ using System.Net;
 
 namespace searchfight
 {
-    class GoogleSearchEngine : SearchEngine
+    class GoogleSearchEngine : ISearchEngine
     {
         private string name;
         private string searchEngineUrl;

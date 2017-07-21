@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace searchfight
 {
-    interface SearchEngine
+    interface ISearchEngine
     {
         string GetName();
         long GetTotalResults();

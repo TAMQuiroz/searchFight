@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="Engine\BingSearchEngine.cs" />
     <Compile Include="Engine\GoogleSearchEngine.cs" />
-    <Compile Include="Engine\SearchEngine.cs" />
+    <Compile Include="Engine\ISearchEngine.cs" />
     <Compile Include="Engine\SearchEngineManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

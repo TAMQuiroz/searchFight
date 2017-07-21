@@ -4,7 +4,7 @@ using System.Net;
 
 namespace searchfight
 {
-    class BingSearchEngine : SearchEngine
+    class BingSearchEngine : ISearchEngine
     {
         private string name;
         private string apiKey;

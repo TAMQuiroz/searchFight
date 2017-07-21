@@ -43,7 +43,7 @@ namespace searchfight
 
                 for (int j = 0; j < engines.Count; j++)
                 {
-                    var engine = (SearchEngine)engines[j];
+                    var engine = (ISearchEngine)engines[j];
                     engine.GenerateRequest(searchArguments[i]);
 
                     Console.Write(engine.GetName() + ": " + engine.GetTotalResults() + " ");
