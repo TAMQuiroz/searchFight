@@ -14,7 +14,6 @@ namespace searchfight
         {
             var googleApiKey = "AIzaSyBHNafIEDb4gd2JmnEgieVSzM6eqhp71iQ";
             var googleEngineID = "015891582885684423708:95gpcjavrik";
-
             this.name = "Google";
             this.searchEngineUrl = "https://www.googleapis.com/customsearch/v1?key=" + googleApiKey + "&cx=" + googleEngineID + "&q=";
         }
